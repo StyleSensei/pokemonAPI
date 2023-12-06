@@ -33,6 +33,7 @@ for(let i = 0; i < pokemonData.data.results.length; i++){
   // console.log(pokemonInfo.data.sprites.front_default);
   const pokemonCard= document.createElement("div") as HTMLDivElement;
   pokemonCard.className="pokemon-card";
+  pokemonCard.id="pokemon-card";
   const container= document.getElementById("pokemons-container");
   container?.appendChild(pokemonCard);
   const PokemonTitel= document.createElement("h3") as HTMLHeadingElement;
@@ -44,6 +45,12 @@ for(let i = 0; i < pokemonData.data.results.length; i++){
   pokemonCard.appendChild(pokemonImg)
   pokemonImg.setAttribute("src", pokemonInfo.data.sprites.front_default)
   console.log(pokemonInfo.data);
+  
+  document.getElementById("pokemon-card")?.addEventListener("click",()=>{
+    const thePokemon = document.createElement("div") as HTMLDivElement;
+    
+    
+  })
 
 }
            
@@ -54,6 +61,5 @@ for(let i = 0; i < pokemonData.data.results.length; i++){
 // }
 document.getElementById("searchBtn")?.addEventListener("click", searchPokemon);
 
-//sprites_front_default för att få[0]()=>{)bild$//
 
 
