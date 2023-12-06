@@ -27,9 +27,24 @@ async function searchPokemon() {
 //        console.log(pokemonArray.url);
            
 for(let i = 0; i < pokemonData.data.results.length; i++){
-  console.log(pokemonData.data.results[i].url)
+  console.log(pokemonData.data.results)
+  // console.log(pokemonData.data.results[i].name)
   const pokemonInfo = await axios.get(pokemonData.data.results[i].url)
-  console.log(pokemonInfo);
+  // console.log(pokemonInfo.data.sprites.front_default);
+  const pokemonCard= document.createElement("div") as HTMLDivElement;
+  pokemonCard.className="pokemon-card";
+  const container= document.getElementById("pokemons-container");
+  container?.appendChild(pokemonCard);
+  const PokemonTitel= document.createElement("h3") as HTMLHeadingElement;
+  PokemonTitel.className="pokemon-title"
+  pokemonCard.appendChild(PokemonTitel);
+  PokemonTitel.innerHTML=pokemonData.data.results[i].name;
+  const pokemonImg= document.createElement("img") as HTMLImageElement;
+  pokemonImg.className="pokemon-img"
+  pokemonCard.appendChild(pokemonImg)
+  pokemonImg.setAttribute("src", pokemonInfo.data.sprites.front_default)
+  console.log(pokemonInfo.data);
+
 }
            
 }
