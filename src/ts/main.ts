@@ -6,6 +6,7 @@ interface IPokemon {
   sprites: string;
   order: number;
   gender: string;
+  url:string
 }
 interface IPokemonResponse {
   results: IPokemon[];
@@ -26,7 +27,9 @@ async function searchPokemon() {
 //        console.log(pokemonArray.url);
            
 for(let i = 0; i < pokemonData.data.results.length; i++){
-  console.log(pokemonData.data.results)
+  console.log(pokemonData.data.results[i].url)
+  const pokemonInfo = await axios.get(pokemonData.data.results[i].url)
+  console.log(pokemonInfo);
 }
            
 }
